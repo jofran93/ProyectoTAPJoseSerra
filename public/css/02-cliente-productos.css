@@ -1,0 +1,19 @@
+        body { background-color: #f7f9fb; color: #191c1e; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .icon-fill, .material-symbols-outlined[data-weight="fill"] { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid #E2E8F0; }
+        .map-container { background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBiX_2aYRyBC44kjdiYIa4Fbcu_9dAUcuL9DP_kyb42EBQr1b4DStpZoo2-KSzXWARi2pxY3k9uxpKn7e93i_pB8pXMIA54yZ04E1eWzCAndtiuNkDCjDrih67vqurW3UDnCmWXgen1uwDpnq3ny2vphtfyF86b9jr26-lCJn4maAH0kIuv7z6DbauuNH7eE6bxaYuE0orI_wBjL9LzuHCtxcDN6tos0ygk483cZgyMdMAn6m1WM0mCLmjlqZw886VoPDU'); background-size: cover; background-position: center; }
+        .product-card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0, 91, 183, 0.1); }
+        .btn-primary { background-color: #00448c; color: #ffffff; border-radius: 8px; transition: all 0.2s ease-in-out; }
+        .btn-primary:hover { box-shadow: 0 0 10px rgba(0, 68, 140, 0.5); }
+        .btn-secondary { background-color: transparent; color: #00448c; border: 1px solid #00448c; border-radius: 8px; transition: all 0.2s ease-in-out; }
+        .btn-secondary:hover { background-color: rgba(0, 68, 140, 0.05); }
+        .input-clinical { background-color: #ffffff; border: 1px solid #c2c6d4; border-radius: 8px; transition: all 0.2s ease-in-out; }
+        .input-clinical:focus { outline: none; border-color: #006688; box-shadow: 0 0 0 2px rgba(0, 102, 136, 0.2); }
+        .status-optimal { background-color: #52edd7; color: #005047; }
+        .status-pending { background-color: #e0e3e5; color: #424752; }
+        .status-error { background-color: #ffdad6; color: #93000a; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #c2c6d4; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #727783; }

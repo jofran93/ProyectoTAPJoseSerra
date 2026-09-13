@@ -1,0 +1,17 @@
+# Blueprint de Render: "New +" -> "Blueprint" -> conectar este repo -> Render lee
+# este archivo solo y arma el servicio. DATABASE_URL y SESSION_SECRET quedan marcados
+# como sync:false para que Render los pida a mano en vez de guardarlos en el repo.
+services:
+  - type: web
+    name: aguas-el-gallo
+    runtime: node
+    plan: free
+    buildCommand: npm install && npx prisma generate && npx prisma migrate deploy
+    startCommand: node server.js
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: DB_SSL
+        value: "true"

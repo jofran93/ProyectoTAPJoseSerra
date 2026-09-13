@@ -1,0 +1,138 @@
+// Esquema de datos de Aguas El Gallo.
+// Base de datos: PostgreSQL. ORM: Prisma.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Rol {
+  ADMIN
+  CLIENTE
+  REPARTIDOR
+}
+
+enum EstadoPedido {
+  PENDIENTE
+  PREPARANDO
+  LISTO
+  EN_RUTA
+  ENTREGADO
+  CANCELADO
+}
+
+enum MetodoPago {
+  EFECTIVO
+  TRANSFERENCIA
+  TARJETA
+}
+
+enum TipoMovimientoInventario {
+  ENTRADA
+  SALIDA
+  AJUSTE
+}
+
+model Usuario {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  passwordHash String
+  nombre       String
+  apellido     String
+  telefono     String?
+  direccion    String?
+  rol          Rol
+  activo       Boolean  @default(true)
+  creadoEn     DateTime @default(now())
+
+  pedidos           Pedido[]         @relation("PedidosCliente")
+  pedidosAsignados  Pedido[]         @relation("PedidosRepartidor")
+  registrosCalidad  RegistroCalidad[]
+  movimientosStock  MovimientoInventario[]
+
+  @@map("usuarios")
+}
+
+model Producto {
+  id          Int      @id @default(autoincrement())
+  nombre      String
+  descripcion String
+  precio      Int
+  stock       Int      @default(0)
+  imagenUrl   String?
+  destacado   Boolean  @default(false)
+  etiqueta    String?  // ej: "Popular", "Mayorista"
+  activo      Boolean  @default(true)
+  creadoEn    DateTime @default(now())
+
+  itemsPedido ItemPedido[]
+  movimientos MovimientoInventario[]
+
+  @@map("productos")
+}
+
+model Pedido {
+  id                Int          @id @default(autoincrement())
+  numero            Int          @unique @default(autoincrement())
+  clienteId         Int
+  cliente           Usuario      @relation("PedidosCliente", fields: [clienteId], references: [id])
+  repartidorId      Int?
+  repartidor        Usuario?     @relation("PedidosRepartidor", fields: [repartidorId], references: [id])
+  estado            EstadoPedido @default(PENDIENTE)
+  direccionEntrega  String
+  metodoPago        MetodoPago
+  total             Int
+  creadoEn          DateTime     @default(now())
+  entregadoEn       DateTime?
+
+  items             ItemPedido[]
+
+  @@map("pedidos")
+}
+
+model ItemPedido {
+  id             Int      @id @default(autoincrement())
+  pedidoId       Int
+  pedido         Pedido   @relation(fields: [pedidoId], references: [id], onDelete: Cascade)
+  productoId     Int
+  producto       Producto @relation(fields: [productoId], references: [id])
+  cantidad       Int
+  precioUnitario Int
+
+  @@map("items_pedido")
+}
+
+// Un registro = un análisis de lote (fecha + lote + inspector + las 4 lecturas).
+model RegistroCalidad {
+  id             Int      @id @default(autoincrement())
+  fecha          DateTime
+  lote           String
+  operador       String   // nombre de quien tomó la muestra (texto libre, no siempre coincide con la cuenta que lo carga)
+  ph             Float
+  turbiedad      Float    // NTU
+  conductividad  Float    // µS/cm
+  tds            Float    // ppm
+  responsableId  Int      // cuenta que cargó/editó el registro (auditoría)
+  responsable    Usuario  @relation(fields: [responsableId], references: [id])
+  creadoEn       DateTime @default(now())
+
+  @@map("registros_calidad")
+}
+
+model MovimientoInventario {
+  id             Int                      @id @default(autoincrement())
+  productoId     Int
+  producto       Producto                 @relation(fields: [productoId], references: [id])
+  tipo           TipoMovimientoInventario
+  cantidad       Int
+  motivo         String?
+  responsableId  Int
+  responsable    Usuario                  @relation(fields: [responsableId], references: [id])
+  fecha          DateTime                 @default(now())
+
+  @@map("movimientos_inventario")
+}

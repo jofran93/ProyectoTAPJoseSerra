@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Agua El Gallo - Control de Inventario</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&family=Libre+Caslon+Text:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-container": "#00c1fd", "outline-variant": "#c2c6d4", "inverse-on-surface": "#eff1f3",
+                        "surface-container-lowest": "#ffffff", "on-secondary-fixed-variant": "#004d67", "background": "#f7f9fb",
+                        "surface-container": "#eceef0", "on-background": "#191c1e", "on-tertiary-fixed": "#00201c",
+                        "error-container": "#ffdad6", "on-primary-fixed": "#001b3e", "on-error": "#ffffff",
+                        "on-secondary": "#ffffff", "secondary-fixed": "#c2e8ff", "tertiary": "#004f46",
+                        "surface-container-high": "#e6e8ea", "outline": "#727783", "on-tertiary-fixed-variant": "#005047",
+                        "error": "#ba1a1a", "primary-fixed": "#d7e3ff", "secondary-fixed-dim": "#75d1ff",
+                        "on-tertiary-container": "#52edd7", "on-primary": "#ffffff", "inverse-surface": "#2d3133",
+                        "tertiary-fixed-dim": "#3cddc7", "surface-bright": "#f7f9fb", "on-secondary-fixed": "#001e2b",
+                        "tertiary-container": "#00695d", "primary-container": "#005bb7", "surface-variant": "#e0e3e5",
+                        "secondary": "#006688", "on-secondary-container": "#004b65", "surface-container-highest": "#e0e3e5",
+                        "primary": "#00448c", "surface-dim": "#d8dadc", "surface": "#f7f9fb", "surface-tint": "#055cb9",
+                        "tertiary-fixed": "#62fae3", "primary-fixed-dim": "#aac7ff", "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f2f4f6", "inverse-primary": "#aac7ff", "on-primary-container": "#c4d7ff",
+                        "on-surface-variant": "#424752", "on-primary-fixed-variant": "#00458e", "on-surface": "#191c1e",
+                        "on-error-container": "#93000a"
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                    spacing: { "container-padding": "24px", "gutter": "20px", "section-gap": "48px", "stack-md": "12px", "base": "8px", "stack-sm": "4px" },
+                    fontFamily: {
+                        "display-lg": ["Libre Caslon Text", "serif"], "headline-lg": ["Libre Caslon Text", "serif"],
+                        "headline-md": ["Libre Caslon Text", "serif"], "headline-lg-mobile": ["Libre Caslon Text", "serif"],
+                        "label-md": ["Hanken Grotesk", "sans-serif"], "body-lg": ["Hanken Grotesk", "sans-serif"],
+                        "body-md": ["Hanken Grotesk", "sans-serif"], "code": ["JetBrains Mono", "monospace"]
+                    },
+                    fontSize: {
+                        "display-lg": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "600" }],
+                        "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+                        "headline-lg-mobile": ["24px", { lineHeight: "1.2", fontWeight: "600" }],
+                        "label-md": ["14px", { lineHeight: "1.2", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "code": ["14px", { lineHeight: "1.4", fontWeight: "400" }]
+                    },
+                    boxShadow: {
+                        'ambient': '0 4px 20px rgba(0, 91, 183, 0.05)',
+                        'ambient-water': '0 8px 32px rgba(0, 91, 183, 0.08)',
+                        'ambient-glow': '0 0 0 2px rgba(0, 193, 253, 0.2)'
+                    }
+                }
+            }
+        }
+    </script>
+<link rel="stylesheet" href="/css/08-admin-inventario.css">
+<script src="/js/common.js" defer></script>
+<script src="/js/08-admin-inventario.js" defer></script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md h-screen overflow-hidden flex">
+<nav class="hidden md:flex flex-col h-full border-r border-outline-variant/30 fixed left-0 top-0 h-screen w-72 bg-surface-container-low shadow-sm z-50">
+<div class="p-gutter flex flex-col gap-base">
+<div class="flex items-center gap-3 mb-1"><div class="w-10 h-10 rounded-lg overflow-hidden bg-primary-container flex items-center justify-center"><img alt="Agua El Gallo Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7y3xoFAgJfTHP_Xa5N8bTiot9FZpR9CRdrRr7pjtP_U_VaFRgD6w8cif-HCpd_lQI5HfBFL_dW1NqmXYGSdth0mRMUcA7qxY8u5qJriRlaqz9GnfkSv2rFAqWhXkPoIfMjP7ai-wpvnaZiTNq4fylELCPtUtq6Xxt3b_5bbrjIQTa1hV8IYP7DUUEMus6YpKBlUCCj7fVdzxch56whF52FAP3PgjpVfi7OA4uICMMdMiEZvLgqI8K2QC_qLFYCb6LhuY"></div><h1 class="font-display-lg text-headline-lg text-primary tracking-tight">Agua El Gallo</h1></div>
+</div>
+<div class="flex-1 px-base overflow-y-auto mt-4 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-colors rounded-lg group" href="/admin/resumen"><span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">dashboard</span><span class="font-body-md text-body-md font-semibold">Resumen</span></a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-colors rounded-lg group" href="/admin/pedidos"><span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">shopping_cart</span><span class="font-body-md text-body-md font-semibold">Pedidos</span></a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-colors rounded-lg group" href="/admin/despacho"><span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">local_shipping</span><span class="font-body-md text-body-md font-semibold">Despacho</span></a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-colors rounded-lg group" href="/admin/calidad"><span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">water_drop</span><span class="font-body-md text-body-md font-semibold">Calidad</span></a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-lg font-bold transition-all duration-200 active:scale-95" href="/admin/inventario"><span class="material-symbols-outlined icon-fill">inventory_2</span><span class="font-body-md text-body-md">Inventario</span></a>
+</div>
+<div class="p-gutter border-t border-outline-variant/30 space-y-2">
+<a id="logout-link" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-colors rounded-lg group text-error hover:bg-error-container/20" href="/login"><span class="material-symbols-outlined text-error">logout</span><span class="font-body-md text-body-md font-semibold">Cerrar Sesión</span></a>
+</div>
+</nav>
+<div class="flex-1 flex flex-col h-full ml-0 md:ml-72 transition-all duration-300 relative">
+<header class="sticky top-0 w-full z-40 bg-surface/80 backdrop-blur-xl shadow-sm flex justify-between items-center h-16 px-gutter">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 text-primary hover:bg-surface-variant rounded-full transition-colors"><span class="material-symbols-outlined">menu</span></button>
+<h2 class="font-headline-md text-headline-md text-primary font-bold">Control de Inventario</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden sm:block w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input id="buscar-producto" class="input-clinical w-full pl-10 py-2 font-body-md text-body-md text-on-surface placeholder:text-outline/70" placeholder="Buscar producto..." type="text">
+</div>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto p-container-padding pb-section-gap relative">
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-section-gap">
+<div><h2 class="font-headline-lg text-headline-lg text-on-surface mb-stack-sm">Catálogo de productos</h2></div>
+<button id="btn-nuevo-producto" class="btn-primary flex items-center gap-2 px-6 py-3 font-label-md text-label-md"><span class="material-symbols-outlined">add</span>Agregar nuevo producto</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-section-gap">
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-container-padding shadow-ambient border-t-4 border-t-secondary">
+<div class="flex justify-between items-start mb-stack-md"><span class="material-symbols-outlined text-secondary text-3xl">inventory</span><span class="font-label-md text-label-md status-optimal px-3 py-1 rounded-full">En stock</span></div>
+<h3 id="inv-total-stock" class="font-headline-md text-headline-md text-on-surface">-</h3><p class="font-body-md text-body-md text-on-surface-variant">Unidades Totales en Stock</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-container-padding shadow-ambient">
+<div class="flex justify-between items-start mb-stack-md"><span class="material-symbols-outlined text-error text-3xl">warning</span><span class="font-label-md text-label-md status-error px-3 py-1 rounded-full">Acción Requerida</span></div>
+<h3 id="inv-bajo-stock" class="font-headline-md text-headline-md text-on-surface">-</h3><p class="font-body-md text-body-md text-on-surface-variant">Productos con Stock Bajo (&lt;10)</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-container-padding shadow-ambient">
+<div class="flex justify-between items-start mb-stack-md"><span class="material-symbols-outlined text-tertiary-container text-3xl">update</span></div>
+<h3 id="inv-ultima-sync" class="font-headline-md text-headline-md text-on-surface">-</h3><p class="font-body-md text-body-md text-on-surface-variant">Última Actualización</p>
+</div>
+</div>
+<div id="inventario-grid" class="grid grid-cols-1 xl:grid-cols-2 gap-gutter">
+<p class="text-on-surface-variant">Cargando inventario...</p>
+</div>
+</main>
+</div>
+</body>
+</html>
