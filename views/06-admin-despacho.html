@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Agua El Gallo - Despacho</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&family=Libre+Caslon+Text:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-container": "#00c1fd", "outline-variant": "#c2c6d4", "inverse-on-surface": "#eff1f3",
+                        "surface-container-lowest": "#ffffff", "on-secondary-fixed-variant": "#004d67", "background": "#f7f9fb",
+                        "surface-container": "#eceef0", "on-background": "#191c1e", "on-tertiary-fixed": "#00201c",
+                        "error-container": "#ffdad6", "on-primary-fixed": "#001b3e", "on-error": "#ffffff",
+                        "on-secondary": "#ffffff", "secondary-fixed": "#c2e8ff", "tertiary": "#004f46",
+                        "surface-container-high": "#e6e8ea", "outline": "#727783", "on-tertiary-fixed-variant": "#005047",
+                        "error": "#ba1a1a", "primary-fixed": "#d7e3ff", "secondary-fixed-dim": "#75d1ff",
+                        "on-tertiary-container": "#52edd7", "on-primary": "#ffffff", "inverse-surface": "#2d3133",
+                        "tertiary-fixed-dim": "#3cddc7", "surface-bright": "#f7f9fb", "on-secondary-fixed": "#001e2b",
+                        "tertiary-container": "#00695d", "primary-container": "#005bb7", "surface-variant": "#e0e3e5",
+                        "secondary": "#006688", "on-secondary-container": "#004b65", "surface-container-highest": "#e0e3e5",
+                        "primary": "#00448c", "surface-dim": "#d8dadc", "surface": "#f7f9fb", "surface-tint": "#055cb9",
+                        "tertiary-fixed": "#62fae3", "primary-fixed-dim": "#aac7ff", "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f2f4f6", "inverse-primary": "#aac7ff", "on-primary-container": "#c4d7ff",
+                        "on-surface-variant": "#424752", "on-primary-fixed-variant": "#00458e", "on-surface": "#191c1e",
+                        "on-error-container": "#93000a"
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                    spacing: { "container-padding": "24px", "gutter": "20px", "section-gap": "48px", "stack-md": "12px", "base": "8px", "stack-sm": "4px" },
+                    fontFamily: {
+                        "display-lg": ["Libre Caslon Text", "serif"], "headline-lg": ["Libre Caslon Text", "serif"],
+                        "headline-md": ["Libre Caslon Text", "serif"], "headline-lg-mobile": ["Libre Caslon Text", "serif"],
+                        "label-md": ["Hanken Grotesk", "sans-serif"], "body-lg": ["Hanken Grotesk", "sans-serif"],
+                        "body-md": ["Hanken Grotesk", "sans-serif"], "code": ["JetBrains Mono", "monospace"]
+                    },
+                    fontSize: {
+                        "display-lg": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "600" }],
+                        "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+                        "headline-lg-mobile": ["24px", { lineHeight: "1.2", fontWeight: "600" }],
+                        "label-md": ["14px", { lineHeight: "1.2", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "code": ["14px", { lineHeight: "1.4", fontWeight: "400" }]
+                    },
+                    boxShadow: {
+                        'ambient': '0 4px 20px rgba(0, 91, 183, 0.05)',
+                        'ambient-water': '0 8px 32px rgba(0, 91, 183, 0.08)',
+                        'ambient-glow': '0 0 0 2px rgba(0, 193, 253, 0.2)'
+                    }
+                }
+            }
+        }
+    </script>
+<link rel="stylesheet" href="/css/06-admin-despacho.css">
+<script src="/js/common.js" defer></script>
+<script src="/js/06-admin-despacho.js" defer></script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md min-h-screen flex">
+<nav class="hidden md:flex flex-col h-screen w-72 bg-surface-container-low shadow-sm border-r border-outline-variant/30 fixed left-0 top-0 z-50">
+<div class="p-container-padding flex items-center gap-3 border-b border-outline-variant/30">
+<div class="w-10 h-10 rounded-full overflow-hidden"><img alt="Agua El Gallo Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlRiDY09KQLHjcxy7CKiTRJtOawD_dVsvH3yAm3ERBoDShFJ3VZl_u-7UZoj7EmM43q5S0qVa5aYgUpCofd4D3SNb1_D4MVC8Zh-ECRWKfAVdRpGe5NoYjhmdY47N_jMfV75vLy2yt2jUQ5KJLp0fCiZd4YIqeOvPVJ_eSzCnNONpvuQJNMvFEEnfMuTQtbJYDbIZ5FXBDv-YjQErN9kV7-pRGG_t1mn_TBpBI31w-6LU2y-GqrdgulrwsNDlMt-lYEPs"></div>
+<div><h1 class="font-display-lg text-primary text-xl">Agua El Gallo</h1></div>
+</div>
+<div class="flex-1 py-stack-md flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-colors mx-2 rounded-lg" href="/admin/resumen"><span class="material-symbols-outlined">dashboard</span>Resumen</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-colors mx-2 rounded-lg" href="/admin/pedidos"><span class="material-symbols-outlined">shopping_cart</span>Pedidos</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-lg font-bold mx-2" href="/admin/despacho"><span class="material-symbols-outlined icon-fill">local_shipping</span>Despacho</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-colors mx-2 rounded-lg" href="/admin/calidad"><span class="material-symbols-outlined">water_drop</span>Calidad</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-colors mx-2 rounded-lg" href="/admin/inventario"><span class="material-symbols-outlined">inventory_2</span>Inventario</a>
+</div>
+<div class="p-container-padding border-t border-outline-variant/30 flex flex-col gap-2">
+<a id="logout-link" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-colors rounded-lg" href="/login"><span class="material-symbols-outlined">logout</span>Cerrar Sesión</a>
+</div>
+</nav>
+<div class="flex-1 flex flex-col md:ml-72 min-h-screen">
+<header class="sticky top-0 w-full z-40 bg-surface/80 backdrop-blur-xl shadow-sm flex justify-between items-center h-16 px-gutter">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-primary"><span class="material-symbols-outlined">menu</span></button>
+<h2 class="font-headline-md text-headline-md text-primary font-bold hidden md:block">Despacho de pedidos</h2>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold md:hidden">Despacho</h2>
+</div>
+</header>
+<main class="flex-1 p-container-padding flex flex-col lg:flex-row gap-gutter h-[calc(100vh-4rem)] overflow-hidden">
+<div class="flex-1 flex flex-col gap-6 overflow-hidden">
+<div class="flex justify-between items-center"><h3 class="font-headline-lg text-headline-lg text-primary">Tablero de Despacho</h3><div class="flex gap-2"><span id="contador-despacho" class="font-label-md text-label-md text-primary bg-primary-fixed px-4 py-2 rounded-full">0/0 Completadas</span></div></div>
+<div id="lista-despacho" class="flex-1 overflow-y-auto pr-2 space-y-4">
+<p class="text-on-surface-variant">Cargando pedidos...</p>
+</div>
+</div>
+</main>
+</div>
+</body>
+</html>

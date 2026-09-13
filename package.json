@@ -1,0 +1,26 @@
+{
+  "name": "aguas",
+  "version": "1.0.0",
+  "description": "Portal web Agua El Gallo - vistas de cliente, repartidor y administración",
+  "main": "server.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "seed": "node prisma/seed.js"
+  },
+  "dependencies": {
+    "@prisma/client": "6.19.3",
+    "bcrypt": "^6.0.0",
+    "connect-pg-simple": "^10.0.0",
+    "dotenv": "^17.4.2",
+    "express": "^4.22.2",
+    "express-session": "^1.19.0",
+    "pg": "^8.23.0",
+    "prisma": "6.19.3"
+  }
+}

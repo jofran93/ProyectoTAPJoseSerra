@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: aguas-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER:-aguas}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-aguas}
+      POSTGRES_DB: ${DB_NAME:-aguas}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - aguas_db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-aguas} -d ${DB_NAME:-aguas}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  aguas_db_data:

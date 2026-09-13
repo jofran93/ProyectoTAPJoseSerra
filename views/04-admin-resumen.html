@@ -1,0 +1,152 @@
+<!DOCTYPE html><html class="light" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Agua El Gallo - Resumen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&family=Libre+Caslon+Text:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-container": "#00c1fd", "outline-variant": "#c2c6d4", "inverse-on-surface": "#eff1f3",
+                        "surface-container-lowest": "#ffffff", "on-secondary-fixed-variant": "#004d67", "background": "#f7f9fb",
+                        "surface-container": "#eceef0", "on-background": "#191c1e", "on-tertiary-fixed": "#00201c",
+                        "error-container": "#ffdad6", "on-primary-fixed": "#001b3e", "on-error": "#ffffff",
+                        "on-secondary": "#ffffff", "secondary-fixed": "#c2e8ff", "tertiary": "#004f46",
+                        "surface-container-high": "#e6e8ea", "outline": "#727783", "on-tertiary-fixed-variant": "#005047",
+                        "error": "#ba1a1a", "primary-fixed": "#d7e3ff", "secondary-fixed-dim": "#75d1ff",
+                        "on-tertiary-container": "#52edd7", "on-primary": "#ffffff", "inverse-surface": "#2d3133",
+                        "tertiary-fixed-dim": "#3cddc7", "surface-bright": "#f7f9fb", "on-secondary-fixed": "#001e2b",
+                        "tertiary-container": "#00695d", "primary-container": "#005bb7", "surface-variant": "#e0e3e5",
+                        "secondary": "#006688", "on-secondary-container": "#004b65", "surface-container-highest": "#e0e3e5",
+                        "primary": "#00448c", "surface-dim": "#d8dadc", "surface": "#f7f9fb", "surface-tint": "#055cb9",
+                        "tertiary-fixed": "#62fae3", "primary-fixed-dim": "#aac7ff", "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f2f4f6", "inverse-primary": "#aac7ff", "on-primary-container": "#c4d7ff",
+                        "on-surface-variant": "#424752", "on-primary-fixed-variant": "#00458e", "on-surface": "#191c1e",
+                        "on-error-container": "#93000a"
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                    spacing: { "container-padding": "24px", "gutter": "20px", "section-gap": "48px", "stack-md": "12px", "base": "8px", "stack-sm": "4px" },
+                    fontFamily: {
+                        "display-lg": ["Libre Caslon Text", "serif"], "headline-lg": ["Libre Caslon Text", "serif"],
+                        "headline-md": ["Libre Caslon Text", "serif"], "headline-lg-mobile": ["Libre Caslon Text", "serif"],
+                        "label-md": ["Hanken Grotesk", "sans-serif"], "body-lg": ["Hanken Grotesk", "sans-serif"],
+                        "body-md": ["Hanken Grotesk", "sans-serif"], "code": ["JetBrains Mono", "monospace"]
+                    },
+                    fontSize: {
+                        "display-lg": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "600" }],
+                        "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+                        "headline-lg-mobile": ["24px", { lineHeight: "1.2", fontWeight: "600" }],
+                        "label-md": ["14px", { lineHeight: "1.2", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "code": ["14px", { lineHeight: "1.4", fontWeight: "400" }]
+                    },
+                    boxShadow: {
+                        'ambient': '0 4px 20px rgba(0, 91, 183, 0.05)',
+                        'ambient-water': '0 8px 32px rgba(0, 91, 183, 0.08)',
+                        'ambient-glow': '0 0 0 2px rgba(0, 193, 253, 0.2)'
+                    }
+                }
+            }
+        }
+    </script>
+<link rel="stylesheet" href="/css/04-admin-resumen.css">
+<script src="/js/common.js" defer></script>
+<script src="/js/04-admin-resumen.js" defer></script>
+</head>
+<body class="text-on-background font-body-md text-body-md overflow-x-hidden">
+<header class="sticky top-0 w-full z-40 bg-surface/80 backdrop-blur-xl shadow-sm flex justify-between items-center h-16 px-gutter ml-0 md:ml-72 transition-all duration-300">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">menu</span></button>
+<div class="hidden md:flex font-headline-md text-headline-md text-primary font-bold">Agua El Gallo</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-body-md font-body-md focus:outline-none focus:border-secondary-container focus:ring-2 focus:ring-secondary-container/20 transition-all w-64" placeholder="Buscar..." type="text">
+</div>
+</div>
+</header>
+<aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-low shadow-sm flex flex-col border-r border-outline-variant/30 z-50 hidden md:flex transition-all duration-300">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 flex items-center justify-center overflow-hidden"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSo-txonI62km8a45bPl8JcVa0wdBvLsL4RkkgLj6EoBcD-0HXu9AYD6wuDtnphFBcgG0wrAo5PS0xuyHMe5otnaIsyLwM4Ay3wcJ0ckSuMgEm5gNxU3u7qydoLKlfHX0WSaXn2uFAQkIUNpUi8J8kV8x-pEOyJuHNMQMUu3ck9XdJhAddQuynz7t-EBsPXv-obNvSk06GHr3sd13Jtu0Rjgu7-LDPdHntH1Qg6wCHdTnoRbJIJAcbTnVPuRpVG1FaDWY" alt="Agua El Gallo Logo" class="w-full h-full object-cover"></div>
+<div><h1 class="font-display-lg text-[24px] font-bold text-primary leading-none">Agua El Gallo</h1></div>
+</div>
+</div>
+<nav class="flex-1 px-4 py-2 space-y-2 overflow-y-auto">
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-lg font-bold transition-all duration-200 active:scale-95 group" href="/admin/resumen"><span class="material-symbols-outlined icon-fill">dashboard</span><span class="font-label-md text-label-md">Resumen</span></a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-colors rounded-lg group" href="/admin/pedidos"><span class="material-symbols-outlined">shopping_cart</span><span class="font-label-md text-label-md group-hover:text-primary transition-colors">Pedidos</span></a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-colors rounded-lg group" href="/admin/despacho"><span class="material-symbols-outlined">local_shipping</span><span class="font-label-md text-label-md group-hover:text-primary transition-colors">Despacho</span></a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-colors rounded-lg group" href="/admin/calidad"><span class="material-symbols-outlined">water_drop</span><span class="font-label-md text-label-md group-hover:text-primary transition-colors">Calidad</span></a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-colors rounded-lg group" href="/admin/inventario"><span class="material-symbols-outlined">inventory_2</span><span class="font-label-md text-label-md group-hover:text-primary transition-colors">Inventario</span></a>
+</nav>
+<div class="p-4 border-t border-outline-variant/30 space-y-2">
+<a id="logout-link" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-colors rounded-lg group" href="/login"><span class="material-symbols-outlined">logout</span><span class="font-label-md text-label-md group-hover:text-primary transition-colors">Cerrar Sesión</span></a>
+</div>
+</aside>
+<main class="md:ml-72 p-4 md:p-container-padding max-w-[1440px] mx-auto min-h-screen">
+<div class="mb-section-gap">
+<h2 id="saludo-texto" class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background">Buenas tardes</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-1">Aquí está el resumen de operaciones de hoy.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter mb-section-gap">
+<div class="bg-surface-container-lowest rounded-lg p-6 shadow-ambient border-t-4 border-t-secondary-container relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="absolute right-0 top-0 w-24 h-24 bg-primary-container/5 rounded-bl-full -z-0"></div>
+<div class="flex justify-between items-start relative z-10">
+<div><p class="font-body-md text-body-md text-on-surface-variant">Pedidos de hoy</p><h3 id="stat-pedidos-hoy" class="font-display-lg text-[36px] md:text-display-lg text-primary mt-2">-</h3></div>
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform"><span class="material-symbols-outlined">receipt_long</span></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-6 shadow-ambient border border-outline-variant/30 relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start relative z-10">
+<div><p class="font-body-md text-body-md text-on-surface-variant">Por despachar</p><h3 id="stat-por-despachar" class="font-display-lg text-[36px] md:text-display-lg text-on-background mt-2">-</h3></div>
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant group-hover:scale-110 transition-transform"><span class="material-symbols-outlined">pending_actions</span></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-6 shadow-ambient border border-outline-variant/30 relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start relative z-10 mb-4">
+<div><p class="font-body-md text-body-md text-on-surface-variant">Pedidos entregados hoy</p><h3 class="font-display-lg text-[36px] md:text-display-lg text-on-background mt-2"><span id="stat-entregados-hoy">-</span><span class="text-[20px] text-outline-variant">/<span id="stat-pedidos-hoy-2">-</span></span></h3></div>
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant group-hover:scale-110 transition-transform"><span class="material-symbols-outlined">inventory_2</span></div>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2"><div id="stat-entregados-bar" class="bg-primary h-2 rounded-full" style="width: 0%"></div></div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-6 shadow-ambient border border-outline-variant/30 relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="absolute right-0 top-0 w-24 h-24 bg-tertiary-container/5 rounded-bl-full -z-0"></div>
+<div class="flex justify-between items-start relative z-10">
+<div><p class="font-body-md text-body-md text-on-surface-variant">Productos con stock bajo</p><h3 id="stat-stock-bajo" class="font-headline-md text-headline-md text-tertiary-container mt-2">-</h3></div>
+<div class="w-12 h-12 rounded-full bg-tertiary-container/10 flex items-center justify-center text-tertiary-container group-hover:scale-110 transition-transform"><span class="material-symbols-outlined icon-fill">verified</span></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-gutter">
+<div class="space-y-gutter">
+<div class="bg-surface-container-lowest rounded-lg shadow-ambient border border-outline-variant/30 overflow-hidden">
+<div class="p-6 border-b border-outline-variant/30 flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-on-background font-bold">Pedidos recientes</h3>
+<button id="btn-ver-todos" class="text-primary font-label-md text-label-md hover:underline bg-transparent border-none cursor-pointer">Ver todos</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead><tr class="bg-surface-container-low text-on-surface-variant font-label-md text-label-md border-b border-outline-variant/30">
+<th class="p-4 font-semibold">ID Pedido</th><th class="p-4 font-semibold">Cliente</th><th class="p-4 font-semibold">Cantidad</th><th class="p-4 font-semibold">Estado</th>
+</tr></thead>
+<tbody id="tabla-pedidos-recientes" class="font-body-md text-body-md divide-y divide-outline-variant/20">
+<tr><td class="p-4 text-on-surface-variant" colspan="4">Cargando...</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body>
+</html>
