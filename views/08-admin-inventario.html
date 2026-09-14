@@ -115,5 +115,53 @@
 </div>
 </main>
 </div>
+
+<!-- Modal crear/editar producto (incluye imagen) -->
+<div id="modal-producto" class="fixed inset-0 bg-black/50 z-[100] flex items-center justify-center p-4" hidden>
+<div class="bg-surface-container-lowest rounded-xl shadow-lg w-full max-w-md max-h-[90vh] overflow-y-auto">
+<div class="p-6 border-b border-outline-variant/30 flex justify-between items-center">
+<h3 id="modal-producto-titulo" class="font-headline-md text-headline-md text-on-surface">Nuevo producto</h3>
+<button type="button" id="btn-cerrar-modal-producto" class="text-outline hover:text-on-surface"><span class="material-symbols-outlined">close</span></button>
+</div>
+<form id="form-producto" class="p-6 flex flex-col gap-4">
+<p id="producto-error" class="text-error text-sm" hidden></p>
+<div>
+<label class="block text-xs font-medium text-on-surface-variant mb-1">Nombre</label>
+<input id="campo-nombre" type="text" required class="w-full border border-outline-variant rounded-lg px-3 py-2 text-sm">
+</div>
+<div>
+<label class="block text-xs font-medium text-on-surface-variant mb-1">Descripción</label>
+<textarea id="campo-descripcion" rows="2" class="w-full border border-outline-variant rounded-lg px-3 py-2 text-sm"></textarea>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-medium text-on-surface-variant mb-1">Precio (CLP)</label>
+<input id="campo-precio" type="number" min="0" required class="w-full border border-outline-variant rounded-lg px-3 py-2 text-sm">
+</div>
+<div>
+<label class="block text-xs font-medium text-on-surface-variant mb-1">Stock</label>
+<input id="campo-stock" type="number" min="0" required class="w-full border border-outline-variant rounded-lg px-3 py-2 text-sm">
+</div>
+</div>
+<div>
+<label class="block text-xs font-medium text-on-surface-variant mb-1">Imagen del producto</label>
+<div class="flex items-center gap-3">
+<div class="w-20 h-20 rounded-lg bg-surface-variant/30 flex items-center justify-center overflow-hidden shrink-0">
+<img id="campo-imagen-preview" class="w-full h-full object-contain" hidden>
+<span id="campo-imagen-placeholder" class="material-symbols-outlined text-outline text-3xl">water_drop</span>
+</div>
+<div class="flex-1">
+<input id="campo-imagen" type="file" accept="image/*" class="w-full text-sm">
+<p class="text-xs text-outline mt-1">JPG o PNG. Se ajusta sola de tamaño.</p>
+</div>
+</div>
+</div>
+<div class="flex gap-3 mt-2">
+<button type="button" id="btn-cancelar-producto" class="btn-secondary flex-1 py-2 font-label-md text-label-md">Cancelar</button>
+<button type="submit" class="btn-primary flex-1 py-2 font-label-md text-label-md">Guardar</button>
+</div>
+</form>
+</div>
+</div>
 </body>
 </html>

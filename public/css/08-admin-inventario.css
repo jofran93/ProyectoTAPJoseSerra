@@ -17,3 +17,8 @@
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #c2c6d4; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #727783; }
+        /* El modal usa hidden + class="flex ...": ambas reglas tienen la misma
+           especificidad (atributo vs. clase) y por orden de carga ganaría "flex" de
+           Tailwind, dejando el modal visible aunque tenga [hidden]. Este selector por
+           ID gana siempre sin necesitar !important. */
+        #modal-producto[hidden] { display: none; }

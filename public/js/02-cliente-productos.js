@@ -20,11 +20,14 @@ function tarjetaProducto(p) {
     ? `<div class="absolute top-3 right-3 bg-tertiary-container text-on-tertiary-container text-xs font-bold px-2 py-1 rounded-full uppercase tracking-wider">${p.etiqueta}</div>`
     : '';
   const sinStock = p.stock <= 0;
+  const imagenHtml = p.imagenUrl
+    ? `<img alt="${p.nombre}" class="h-full w-auto object-contain" src="${p.imagenUrl}">`
+    : `<span class="material-symbols-outlined text-outline text-6xl">water_drop</span>`;
 
   return `
     <div class="bg-surface-container-lowest border border-surface-variant rounded-xl overflow-hidden shadow-ambient transition-all duration-300 product-card-hover flex flex-col">
       <div class="h-48 bg-surface-container-low relative overflow-hidden flex items-center justify-center p-4">
-        <img alt="${p.nombre}" class="h-full w-auto object-contain" src="${p.imagenUrl || ''}">
+        ${imagenHtml}
         ${etiqueta}
       </div>
       <div class="p-5 flex-1 flex flex-col">
