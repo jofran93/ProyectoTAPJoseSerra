@@ -28,7 +28,9 @@ const pgPool = new Pool({
   ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false,
 });
 
-app.use(express.json());
+// Límite subido de 100kb (default) a 4mb: las imágenes de producto se guardan como
+// base64 dentro del propio registro (ver 08-admin-inventario.js), no como archivo.
+app.use(express.json({ limit: '4mb' }));
 app.use(express.urlencoded({ extended: true }));
 
 app.use(
@@ -46,6 +48,10 @@ app.use(
 // Las vistas .html viven fuera de public/ (en ./views) para que nunca se sirvan como
 // archivo estático crudo: solo se entregan a través de las rutas con requireRole.
 app.use(express.static(PUBLIC_DIR, { index: false }));
+
+// Logo del cliente: vive en la raíz del proyecto (junto a server.js), no dentro de
+// public/, así que se sirve puntual en vez de por el static de arriba.
+app.get('/Logo.png', (req, res) => res.sendFile(path.join(__dirname, 'Logo.png')));
 
 // --- API ---
 app.use('/api/auth', authRoutes);
